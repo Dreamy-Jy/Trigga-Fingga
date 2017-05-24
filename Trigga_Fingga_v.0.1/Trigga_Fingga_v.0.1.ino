@@ -8,9 +8,9 @@
 
 //pins in use 
 const int btnPin = 7;
-const int latchPin = 2;// pin 12 of the 74HC595
-const int clockPin = 4;// pin 14 of the 74HC595
-const int dataPin = 3;// pin 11 of the 74HC595
+const int latchPin = 2;// pin 12 of the 74HC595 blue
+const int clockPin = 4;// pin 14 of the 74HC595 orange
+const int dataPin = 3;// pin 11 of the 74HC595 green
 
 //state trackers
 int btnState;
