@@ -1,4 +1,4 @@
-/* Trigga Fingga v.0.1
+ /* Trigga Fingga v.0.1
  *  
  *  This code just counts the amounts of 
  *  times a button has been pressed
@@ -9,8 +9,8 @@
 //pins in use 
 const int btnPin = 7;
 const int latchPin = 2;// pin 12 of the 74HC595 blue
-const int clockPin = 4;// pin 14 of the 74HC595 orange
-const int dataPin = 3;// pin 11 of the 74HC595 green
+const int clockPin = 4;// pin 14 of the 74HC595 green
+const int dataPin = 3;// pin 11 of the 74HC595 orange
 
 //state trackers
 int btnState;
@@ -19,7 +19,7 @@ int lastBtnState = LOW;
 //press tracker
 int cout = 0;
 const int MAXCOUT = 10;
-int show[10] = {63, 6, 91, 79, 102, 109, 125, 7, 127, 103};
+int displayState[10] = {63, 6, 91, 79, 102, 109, 125, 7, 127, 103};
 
 //timers
 unsigned long lastDebounceTime = 0;
@@ -54,10 +54,11 @@ void loop() {
       
       if (btnState == HIGH) {
         cout++;
-        setDisplayTo(show[cout]);
+        Serial.println("preesed");
+        setDisplayTo(displayState[cout]);
         if (cout >= MAXCOUT){
           cout = 0;
-          setDisplayTo(show[cout]);
+          setDisplayTo(displayState[cout]);
         }
       }
     }
